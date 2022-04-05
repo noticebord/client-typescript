@@ -1,4 +1,5 @@
 import { AuthenticateRequest } from "./requests";
+import { NoticeService, TeamNoticeService, TeamService, TopicService, UserService } from "./services";
 import { TokenService } from "./services/token_service";
 
 export class NoticebordClient {
@@ -42,5 +43,25 @@ export class NoticebordClient {
      */
     static async getToken(request: AuthenticateRequest, baseUrl: string = NoticebordClient.defaultBaseUrl): Promise<string> {
         return await TokenService.getToken(baseUrl, request);
+    }
+
+    get notices(): NoticeService {
+        return new NoticeService(this.token, this.baseUrl);
+    }
+    
+    get teams(): TeamService {
+        return new TeamService(this.token, this.baseUrl);
+    }
+
+    get teamNotices(): TeamNoticeService {
+        return new TeamNoticeService(this.token, this.baseUrl);
+    }
+
+    get topics(): TopicService {
+        return new TopicService(this.token, this.baseUrl);
+    }
+
+    get users(): UserService {
+        return new UserService(this.token, this.baseUrl);
     }
 }
