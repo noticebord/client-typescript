@@ -13,6 +13,8 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "axios": "^0.26.1"
+    "@types/humps": "^2.0.1",
+    "axios": "^0.26.1",
+    "humps": "^2.0.1"
   }
 }

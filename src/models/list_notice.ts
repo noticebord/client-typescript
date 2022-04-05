@@ -5,8 +5,8 @@ import { NestedTopic, User } from ".";
 export interface ListNotice {
     id: number;
     title: string;
-    created_at: string;
-    updated_at: string;
+    createdAt: string;
+    updatedAt: string;
     author?: User;
     topics: NestedTopic[];
 }
