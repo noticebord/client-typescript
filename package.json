@@ -2,10 +2,15 @@
   "name": "noticebord-client",
   "version": "1.0.0",
   "description": "The official Typescript client library for the Noticebord API.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "https://github.com/noticebord/client-typescript",
   "author": "sixpeteunder",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc", 
+    "test": "jest"
+  },
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "jest": "^27.5.1",
@@ -16,5 +21,8 @@
     "@types/humps": "^2.0.1",
     "axios": "^0.26.1",
     "humps": "^2.0.1"
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }

@@ -1,6 +1,6 @@
 import { ListNotice, Notice, Paginated } from "../models";
 import { SaveNoticeRequest } from "../requests";
-import { Service } from "./";
+import { Service } from "./service";
 
 export class NoticeService extends Service {
     constructor(token: string, baseUrl: string) {
