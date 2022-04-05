@@ -1,5 +1,5 @@
 import { Topic, Paginated, Notice } from "../models";
-import { Service } from ".";
+import { Service } from "./service";
 
 export class TopicService extends Service {
     constructor(token: string, baseUrl: string) {
@@ -9,7 +9,7 @@ export class TopicService extends Service {
     /**
      * Fetch a list of all topics.
      */
-    async fetchTopicsAsync(): Promise<Topic[]> {
+    async fetchTopics(): Promise<Topic[]> {
         const { data } = await this.api.get<Topic[]>("/topics");
         return data;
     }
@@ -19,7 +19,7 @@ export class TopicService extends Service {
      * 
      * @param {Number} topic The topic ID.
      */
-    async fetchTopicAsync(topic: number): Promise<Topic> {
+    async fetchTopic(topic: number): Promise<Topic> {
         const { data } = await this.api.get<Topic>(`/topics/${topic}`);
         return data;
     }
@@ -29,7 +29,7 @@ export class TopicService extends Service {
      * 
      * @param {Number} topic The topic ID.
      */
-    async fetchTopicNoticesAsync(topic: number, cursor?: string): Promise<Paginated<Notice[]>> {
+    async fetchTopicNotices(topic: number, cursor?: string): Promise<Paginated<Notice[]>> {
         const { data } = await this.api.get<Paginated<Notice[]>>(`/topics/${topic}/notices`, {
             params: { cursor },
         });

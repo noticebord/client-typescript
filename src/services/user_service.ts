@@ -11,7 +11,7 @@ export class UserService extends Service {
      * 
      * @returns An array of all users.
      */
-    async fetchUsersAsync(): Promise<User[]> {
+    async fetchUsers(): Promise<User[]> {
         const response = await this.api.get<User[]>("/users");
         return response.data;
     }
@@ -22,7 +22,7 @@ export class UserService extends Service {
      * @param user The user ID
      * @returns The user
      */
-    async fetchUserAsync(user: number): Promise<User> {
+    async fetchUser(user: number): Promise<User> {
         const response = await this.api.get<User>(`/users/${user}`);
         return response.data;
     }
@@ -32,7 +32,7 @@ export class UserService extends Service {
      * 
      * @returns The user
      */
-    async fetchCurrentUserAsync(): Promise<User> {
+    async fetchCurrentUser(): Promise<User> {
         const response = await this.api.get<User>(`/user`);
         return response.data;
     }
@@ -43,7 +43,7 @@ export class UserService extends Service {
      * @param team The user ID
      * @returns A list of notices belonging to the user.
      */
-    async fetchUserNoticesAsync(user: number): Promise<Notice[]> {
+    async fetchUserNotices(user: number): Promise<Notice[]> {
         const response = await this.api.get<Notice[]>(`/users/${user}/notices`);
         return response.data;
     }
@@ -54,7 +54,7 @@ export class UserService extends Service {
      * @param team The user ID
      * @returns A list of notes belonging to the user.
      */
-    async fetchUserNotesAsync(user: number): Promise<Notice[]> {
+    async fetchUserNotes(user: number): Promise<Notice[]> {
         const response = await this.api.get<Notice[]>(`/users/${user}/notes`);
         return response.data;
     }

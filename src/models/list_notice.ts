@@ -1,4 +1,4 @@
-import { Topic, User } from ".";
+import { NestedTopic, User } from ".";
 
 // TODO: Separate into different interfaces
 // One should have body and the other shouldn't
@@ -8,5 +8,5 @@ export interface ListNotice {
     created_at: string;
     updated_at: string;
     author?: User;
-    topics: Topic[];
+    topics: NestedTopic[];
 }

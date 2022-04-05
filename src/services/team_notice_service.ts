@@ -1,5 +1,5 @@
-import { Service } from ".";
-import { Notice, Paginated } from "../models";
+import { Service } from "./service";
+import { ListTeamNotice, Paginated, TeamNotice } from "../models";
 import { SaveTeamNoticeRequest } from "../requests";
 
 export class TeamNoticeService extends Service {
@@ -13,8 +13,8 @@ export class TeamNoticeService extends Service {
      * @param {Number} team The team ID
      * @param {SaveTeamNoticeRequest} request The notice to create.
      */
-    async createTeam(team: number, request: SaveTeamNoticeRequest): Promise<Notice> {
-        const { data } = await this.api.post<Notice>(`/teams/${team}/notices`, request);
+    async createTeam(team: number, request: SaveTeamNoticeRequest): Promise<ListTeamNotice> {
+        const { data } = await this.api.post<ListTeamNotice>(`/teams/${team}/notices`, request);
         return data;
     }
 
@@ -23,8 +23,8 @@ export class TeamNoticeService extends Service {
      * 
      * @param {Number} team The team ID
      */
-    async fetchTeamNotices(team: number, cursor?: string): Promise<Paginated<Notice>> {
-        const { data } = await this.api.get<Paginated<Notice>>(`/teams/${team}/notices`, {
+    async fetchTeamNotices(team: number, cursor?: string): Promise<Paginated<TeamNotice>> {
+        const { data } = await this.api.get<Paginated<TeamNotice>>(`/teams/${team}/notices`, {
             params: { cursor },
         });
         return data;
@@ -36,8 +36,8 @@ export class TeamNoticeService extends Service {
      * @param {Number} team The team ID
      * @param {Number} id The id of the notice to find.
      */
-    async fetchTeamNotice(team: number, id: number): Promise<Notice> {
-        const { data } = await this.api.get<Notice>(`/teams/${team}/notices/${id}`);
+    async fetchTeamNotice(team: number, id: number): Promise<TeamNotice> {
+        const { data } = await this.api.get<TeamNotice>(`/teams/${team}/notices/${id}`);
         return data;
     }
 
@@ -48,8 +48,8 @@ export class TeamNoticeService extends Service {
      * @param {number} id The id of the notice to update.
      * @param {SaveTeamNoticeRequest} request The notice to create.
      */
-    async updateTeamNotice(team: number, id: number, request: SaveTeamNoticeRequest): Promise<Notice> {
-        const { data } = await this.api.put<Notice>(`/teams/${team}/notices/${id}`, request);
+    async updateTeamNotice(team: number, id: number, request: SaveTeamNoticeRequest): Promise<TeamNotice> {
+        const { data } = await this.api.put<TeamNotice>(`/teams/${team}/notices/${id}`, request);
         return data;
     }
 
