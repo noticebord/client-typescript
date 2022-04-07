@@ -15,6 +15,7 @@ export class TeamService extends Service {
     }
 
     /**
+     * Fetch a single team by ID.
      * 
      * @param {Number} id The id of the team to find.
      */

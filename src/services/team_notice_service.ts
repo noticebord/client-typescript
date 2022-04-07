@@ -13,7 +13,7 @@ export class TeamNoticeService extends Service {
      * @param {Number} team The team ID
      * @param {SaveTeamNoticeRequest} request The notice to create.
      */
-    async createTeam(team: number, request: SaveTeamNoticeRequest): Promise<ListTeamNotice> {
+    async createTeamNotice(team: number, request: SaveTeamNoticeRequest): Promise<ListTeamNotice> {
         const { data } = await this.api.post<ListTeamNotice>(`/teams/${team}/notices`, request);
         return data;
     }
