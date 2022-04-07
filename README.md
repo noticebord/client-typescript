@@ -48,14 +48,14 @@ A token is needed to access restricted endpoints and perform actions on behalf o
 const token = await NoticebordClient.getToken({
     email: "",
     password: "",
-    deviceName: ""
+    deviceName: "",
 });
 
 // You can optionally provide a custom base url
 const token = await NoticebordClient.getToken({
     email: "",
     password: "",
-    deviceName: ""
+    deviceName: "",
 }, baseUrl);
 ```
 
@@ -69,11 +69,11 @@ const service = client.notices
 
 // Creating a notice
 const notice = await service.createNotice({
-    title: "";
-    body: "";
-    topics: [];
-    anonymous: false;
-    public: true;
+    title: "",
+    body: "",
+    topics: [],
+    anonymous: false,
+    public: true,
 });
 
 // Fetching notices
@@ -87,11 +87,11 @@ const notices = await service.fetchNotice(noticeId);
 
 // Updating notices
 const notice = await service.updateNotice({
-    title: "";
-    body: "";
-    topics: [];
-    anonymous: false;
-    public: true;
+    title: "",
+    body: "",
+    topics: [],
+    anonymous: false,
+    public: true,
 });
 
 // Deleting notices
@@ -107,10 +107,9 @@ This service allows you to perform operations related to team notices.
 const service = client.teamNotices
 
 // Creating a team notice
-const request = {}
 const teamNotice = await service.createTeamNotice(teamId, {
-    title: "";
-    body: "";
+    title: "",
+    body: "",
 });
 
 // Fetching team notices
@@ -123,10 +122,9 @@ const teamNotices = await service.fetchTeamNotices(teamId, cursor);
 const teamNotice = await service.fetchTeamNotice(teamId, teamNoticeId);
 
 // Updating team notices
-const request = {}
 const teamNotice = await service.updateTeamNotice(teamId, {
-    title: "";
-    body: "";
+    title: "",
+    body: "",
 });
 
 
